@@ -8,10 +8,21 @@ import { User } from '../../../model/user.class'
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
+title = 'User List';
+users: User[] = [];
 
-  constructor() { }
+  constructor(private userSvc: UserService) { }
 
   ngOnInit(): void {
+    // populate list of users
+    this.userSvc.getAll().subscribe(
+      resp => {
+        this.users = resp as User[];
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
 }
