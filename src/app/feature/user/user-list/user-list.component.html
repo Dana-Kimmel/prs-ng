@@ -8,7 +8,7 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>User Name</th>
+      <th>Username</th>
       <th>Password</th>
       <th>Name</th>
       <th>Phone Number</th>
@@ -21,13 +21,13 @@
   <tbody>
     <tr *ngFor="let user of users">
       <td>{{ user.id }}</td>
-      <td>{{ user.username }}</td>
+      <td>{{ user.userName }}</td>
       <td>{{ user.password }}</td>
       <td>{{ user.firstName }} {{ user.lastName }}</td>
       <td>{{ user.phoneNumber }}</td>
       <td>{{ user.email }}</td>
-      <td>{{ user.isReviewer }}</td>
-      <td>{{ user.isAdmin }}</td>
+      <td><input [(ngModel)]="user.reviewer" class="rounded" type="checkbox" disabled></td>
+      <td><input [(ngModel)]="user.admin" class="rounded" type="checkbox" disabled></td>
       <td>
         <a routerLink="/user-detail/{{ user.id }}">
           <img

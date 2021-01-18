@@ -14,10 +14,11 @@ users: User[] = [];
   constructor(private userSvc: UserService) { }
 
   ngOnInit(): void {
-    // populate list of users
+        // populate list of users
     this.userSvc.getAll().subscribe(
       resp => {
         this.users = resp as User[];
+        console.log('Users', this.users)
       },
       err => {
         console.log(err);

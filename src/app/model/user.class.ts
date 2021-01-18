@@ -1,6 +1,6 @@
 export class User {
   id: number;
-  username: string;
+  userName: string;
   password: string;
   firstName: string;
   lastName: string;
@@ -11,7 +11,7 @@ export class User {
 
   constructor(
     id: number = 0,
-    username: string = '',
+    userName: string = '',
     password: string = '',
     firstName: string = '',
     lastName: string = '',
@@ -21,7 +21,7 @@ export class User {
     isAdmin: boolean = false
   ) {
     this.id = id;
-    this.username = username;
+    this.userName = userName;
     this.password = password;
     this.firstName = firstName;
     this.lastName = lastName;
