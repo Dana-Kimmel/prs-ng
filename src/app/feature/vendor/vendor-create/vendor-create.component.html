@@ -6,34 +6,50 @@
     <table class="table table-sm">
       <tr>
         <td>
-            Username:
+            Code:
         </td>
         <td>
-            <input [(ngModel)]="user.userName" class="rounded" type="text">
-        </td>
-      </tr>
-      <tr>
-        <td>
-            Password:
-        </td>
-        <td>
-            <input [(ngModel)]="user.password" class="rounded" type="text">
+            <input [(ngModel)]="vendor.code" class="rounded" type="text">
         </td>
       </tr>
       <tr>
         <td>
-            First Name:
+            Name:
         </td>
         <td>
-            <input [(ngModel)]="user.firstName" class="rounded" type="text">
+            <input [(ngModel)]="vendor.name" class="rounded" type="text">
         </td>
       </tr>
       <tr>
         <td>
-            Last Name:
+            Address:
         </td>
         <td>
-            <input [(ngModel)]="user.lastName" class="rounded" type="text">
+            <input [(ngModel)]="vendor.address" class="rounded" type="text">
+        </td>
+      </tr>
+      <tr>
+        <td>
+            City:
+        </td>
+        <td>
+            <input [(ngModel)]="vendor.city" class="rounded" type="text">
+        </td>
+      </tr>
+      <tr>
+        <td>
+            State:
+        </td>
+        <td>
+            <input [(ngModel)]="vendor.state" class="rounded" type="text">
+        </td>
+      </tr>
+      <tr>
+        <td>
+            Zip:
+        </td>
+        <td>
+            <input [(ngModel)]="vendor.zip" class="rounded" type="text">
         </td>
       </tr>
       <tr>
@@ -41,7 +57,7 @@
             Phone Number:
         </td>
         <td>
-            <input [(ngModel)]="user.phoneNumber" class="rounded" type="text">
+            <input [(ngModel)]="vendor.phoneNumber" class="rounded" type="text">
         </td>
       </tr>
       <tr>
@@ -49,28 +65,12 @@
             Email:
         </td>
         <td>
-            <input [(ngModel)]="user.email" class="rounded" type="text">
+            <input [(ngModel)]="vendor.email" class="rounded" type="text">
         </td>
       </tr>
-      <tr>
-        <td>
-            Reviewer:
-        </td>
-        <td>
-            <input [(ngModel)]="user.reviewer" class="rounded" type="checkbox">
-        </td>
-      </tr>   
-      <tr>
-        <td>
-            Admin:
-        </td>
-        <td>
-            <input [(ngModel)]="user.admin" class="rounded" type="checkbox">
-        </td>
-      </tr>      
     </table>
   </main>
   <span><button (click)="save()" class="btn btn-sm btn-primary">{{submitBtnTitle}}</button></span> |
   <!--
   <span><button (click)="backClicked()" class="btn btn-sm btn-primary">Back</button></span>
--->
+  -->
