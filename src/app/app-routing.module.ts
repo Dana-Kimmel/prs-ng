@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'user-login', component: UserLoginComponent },
   { path: 'vendor-list', component: VendorListComponent },
   { path: 'vendor-create', component: VendorCreateComponent },
-  { path: 'vendor-detail', component: VendorDetailComponent }
+  { path: 'vendor-detail/:id', component: VendorDetailComponent }
  ];
 
 @NgModule({
