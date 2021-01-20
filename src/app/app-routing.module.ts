@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { NoComponentDefinedComponent } from './core/no-component-defined/no-component-defined.component';
+import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
+import { ProductListComponent } from './feature/product/product-list/product-list.component';
 import { UserCreateComponent } from './feature/user/user-create/user-create.component';
 import { UserDetailComponent } from './feature/user/user-detail/user-detail.component';
 import { UserEditComponent } from './feature/user/user-edit/user-edit.component';
@@ -19,8 +22,11 @@ const routes: Routes = [
   { path: 'vendor-list', component: VendorListComponent },
   { path: 'vendor-create', component: VendorCreateComponent },
   { path: 'vendor-detail/:id', component: VendorDetailComponent },
-  { path: 'vendor-edit/:id', component: VendorEditComponent }
- ];
+  { path: 'vendor-edit/:id', component: VendorEditComponent },
+  { path: 'product-list', component: ProductListComponent },
+  { path: 'product-create', component: ProductCreateComponent },
+  { path: '*', component: NoComponentDefinedComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
