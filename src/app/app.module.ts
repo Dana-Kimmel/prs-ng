@@ -17,6 +17,9 @@ import { VendorEditComponent } from './feature/vendor/vendor-edit/vendor-edit.co
 import { NoComponentDefinedComponent } from './core/no-component-defined/no-component-defined.component';
 import { ProductListComponent } from './feature/product/product-list/product-list.component';
 import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
+import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
+import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
+import { RequestListComponent } from './feature/request/request-list/request-list.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { ProductCreateComponent } from './feature/product/product-create/product
     NoComponentDefinedComponent,
     ProductListComponent,
     ProductCreateComponent,
+    ProductDetailComponent,
+    ProductEditComponent,
+    RequestListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
