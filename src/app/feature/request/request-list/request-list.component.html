@@ -8,9 +8,6 @@
 <table class="table table-sm table-striped">
     <thead>
         <tr>
-        <th>
-            ID
-        </th>
           <th>
             Description
         </th>
@@ -32,7 +29,6 @@
     </thead>
     <tbody>
         <tr  *ngFor='let request of requests'>
-            <td>{{request.id}}</td>
             <td>{{request.description}}</td>
             <td>{{request.dateNeeded}}</td>
             <td>{{request.deliveryMode}}</td>

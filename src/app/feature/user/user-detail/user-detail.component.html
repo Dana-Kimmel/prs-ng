@@ -6,11 +6,7 @@
   </section>
   <main *ngIf="user" class="single">
     <table class="table table-sm">
-      <tr>
-        <td>ID</td>
-        <td>{{ user.id }}</td>
-      </tr>
-      <tr>
+        <tr>
         <td>Username:</td>
         <td>
           <input
@@ -27,7 +23,7 @@
           <input
             [(ngModel)]="user.password"
             class="rounded"
-            type="text"
+            type="password"
             disabled
           />
         </td>
