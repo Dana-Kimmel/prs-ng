@@ -20,6 +20,7 @@ import { ProductCreateComponent } from './feature/product/product-create/product
 import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
 import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
 import { RequestListComponent } from './feature/request/request-list/request-list.component';
+import { RequestCreateComponent } from './feature/request/request-create/request-create.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { RequestListComponent } from './feature/request/request-list/request-lis
     ProductDetailComponent,
     ProductEditComponent,
     RequestListComponent,
+    RequestCreateComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
