@@ -4,7 +4,7 @@
   <span>&nbsp;<a routerLink="/request-list">Return to List</a></span>
 </section>
 <main class="single">
-  <table class="table table-sm">
+  <table  *ngIf="request" class="table table-sm">
     <tr>
       <td>User:</td>
       <td>
