@@ -1,67 +1,31 @@
 <app-menu></app-menu>
 <section class="heading">
-    <span class="page-title font-weight-bold font-italic">[{{title}}]</span>
-    <a routerLink='/request-create'>
-        <img width='20' height='20' src='assets/add-icon.png' title='Add New'>
-    </a>
+  <span class="page-title font-weight-bold font-italic">[{{ title }}]</span>
+  <a routerLink="/request-create">
+    <img width="20" height="20" src="assets/add-icon.png" title="Add New" />
+  </a>
 </section>
 <table class="table table-sm table-striped">
-    <thead>
-        <tr>
-          <th>
-            Description
-        </th>
-           <th>
-            Date Needed
-        </th>
-        <th>
-            Delivery Mode
-        </th> <th>
-            Status
-        </th>
-        <th>
-            Total
-        </th>
-        <th>
-            Submitted Date
-        </th>
+  <thead>
+    <tr>
+      <th>User Name</th>
+      <th>Description</th>
+      <th>Date Needed</th>
+      <th>Delivery Mode</th>
+      <th>Status</th>
+      <th>Total</th>
+      <th>Submitted Date</th>
     </tr>
-    </thead>
-    <tbody>
-        <tr  *ngFor='let request of requests'>
-            <td>{{request.description}}</td>
-            <td>{{request.dateNeeded}}</td>
-            <td>{{request.deliveryMode}}</td>
-            <td>{{request.status}}</td>
-            <td>{{request.total}}</td>
-            <td>{{request.submittedDate}}</td>
-             <td>
-                <a routerLink="/request-detail/{{ request.id }}">
-                  <img
-                    width="20"
-                    height="20"
-                    src="assets/details.png"
-                    title="Request Details"
-                  />
-                </a>
-                |
-                <a routerLink="/request-edit/{{ request.id }}">
-                  <img
-                    width="20"
-                    height="20"
-                    src="assets/pencil-icon.png"
-                    title="Request Edit"
-                  />
-                </a>
-                <a routerLink="/request-lines/{{ request.id }}">
-                  <img
-                    width="20"
-                    height="20"
-                    src="assets/lines.png"
-                    title="Request Lines"
-                  />
-                </a>
-              </td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let request of requests">
+      <td>{{ request.user.userName }}</td>
+      <td>{{ request.description }}</td>
+      <td>{{ request.dateNeeded }}</td>
+      <td>{{ request.deliveryMode }}</td>
+      <td>{{ request.status }}</td>
+      <td>{{ request.total }}</td>
+      <td>{{ request.submittedDate }}</td>
     </tr>
-    </tbody>
+  </tbody>
 </table>

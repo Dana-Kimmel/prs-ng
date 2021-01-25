@@ -1,1 +1,51 @@
-<p>request-lines works!</p>
+<app-menu></app-menu>
+<section class="heading">
+    <span class="page-title font-weight-bold font-italic">[{{ title }}]</span>
+    <span>&nbsp;<a routerLink="/request-list">Return to List</a></span>
+     </section>
+  <table class="table table-sm table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of requests">
+        <td>{{ request.id }}</td>
+        <td>{{ request.description }}</td>
+        <td>{{ request.status }}</td>
+        <td>{{ request.total }}</td>
+        <td>
+          <a routerLink="/request-detail/{{ request.id }}">
+            <img
+              width="20"
+              height="20"
+              src="assets/details.png"
+              title="Request Details"
+            />
+          </a>
+          |
+          <a routerLink="/request-edit/{{ request.id }}">
+            <img
+              width="20"
+              height="20"
+              src="assets/pencil-icon.png"
+              title="Request Edit"
+            />
+          </a>
+          <a routerLink="/request-lines/{{ request.id }}">
+            <img
+              width="20"
+              height="20"
+              src="assets/lines.png"
+              title="Request Lines"
+            />
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
