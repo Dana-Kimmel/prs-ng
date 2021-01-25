@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestLinesComponent implements OnInit {
   title = 'PurchaseRequest Line Items';
+  request: Request = null;
   
   constructor() {}
 
