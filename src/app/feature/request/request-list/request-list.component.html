@@ -8,6 +8,7 @@
 <table class="table table-sm table-striped">
   <thead>
     <tr>
+      <th>ID</th>
       <th>User Name</th>
       <th>Description</th>
       <th>Date Needed</th>
@@ -15,10 +16,12 @@
       <th>Status</th>
       <th>Total</th>
       <th>Submitted Date</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let request of requests">
+      <td>{{ request.id }}</td>
       <td>{{ request.user.userName }}</td>
       <td>{{ request.description }}</td>
       <td>{{ request.dateNeeded }}</td>
