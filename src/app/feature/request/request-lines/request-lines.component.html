@@ -1,9 +1,9 @@
 <app-menu></app-menu>
 <section class="heading">
-    <span class="page-title font-weight-bold font-italic">[{{ title }}]</span>
+    <span class="page-title font-weight-bold font-italic">[{{ requestTitle }}]</span>
     <span>&nbsp;<a routerLink="/request-list">Return to List</a></span>
      </section>
-  <table class="table table-sm table-striped">
+  <table *ngIf='request' class="table table-sm table-striped">
     <thead>
       <tr>
         <th>ID</th>
@@ -13,39 +13,32 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let request of requests">
+        <tr>
         <td>{{ request.id }}</td>
         <td>{{ request.description }}</td>
         <td>{{ request.status }}</td>
-        <td>{{ request.total }}</td>
-        <td>
-          <a routerLink="/request-detail/{{ request.id }}">
-            <img
-              width="20"
-              height="20"
-              src="assets/details.png"
-              title="Request Details"
-            />
-          </a>
-          |
-          <a routerLink="/request-edit/{{ request.id }}">
-            <img
-              width="20"
-              height="20"
-              src="assets/pencil-icon.png"
-              title="Request Edit"
-            />
-          </a>
-          <a routerLink="/request-lines/{{ request.id }}">
-            <img
-              width="20"
-              height="20"
-              src="assets/lines.png"
-              title="Request Lines"
-            />
-          </a>
-        </td>
-      </tr>
+        <td>${{ request.total }}</td>
+         </tr>
     </tbody>
   </table>
-  
+  <section class="heading">
+    <span class="page-title font-weight-bold font-italic">[{{ linesTitle }}]</span>
+    <span>&nbsp;<a routerLink="/request-list">Return to List</a></span>
+     </section>
+     <table *ngIf='lineitem' class="table table-sm table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+  <tbody>
+    <tr>
+        <td>{{ request.id }}</td>
+ 
+         </tr>
+  </tbody>
