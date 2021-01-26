@@ -8,6 +8,7 @@
 <table class="table table-sm table-striped">
   <thead>
     <tr>
+      <th>Vendor</th>
        <th>Part Number</th>
       <th>Product Name</th>
       <th>Price</th>
@@ -16,9 +17,10 @@
   </thead>
   <tbody>
     <tr *ngFor="let product of products">
+      <td>{{ product.vendor.name }}</td>
       <td>{{ product.partNumber }}</td>
       <td>{{ product.name }}</td>
-      <td>{{ product.price }}</td>
+      <td>{{ product.price | currency }}</td>
       <td>
         <a routerLink="/product-detail/{{ product.id }}">
           <img

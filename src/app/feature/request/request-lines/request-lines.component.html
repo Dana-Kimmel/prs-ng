@@ -1,44 +1,54 @@
 <app-menu></app-menu>
 <section class="heading">
-    <span class="page-title font-weight-bold font-italic">[{{ requestTitle }}]</span>
-    <span>&nbsp;<a routerLink="/request-list">Return to List</a></span>
-     </section>
-  <table *ngIf='request' class="table table-sm table-striped">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Description</th>
-        <th>Status</th>
-        <th>Total</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-        <td>{{ request.id }}</td>
-        <td>{{ request.description }}</td>
-        <td>{{ request.status }}</td>
-        <td>${{ request.total }}</td>
-         </tr>
-    </tbody>
-  </table>
-  <section class="heading">
-    <span class="page-title font-weight-bold font-italic">[{{ linesTitle }}]</span>
-    <span>&nbsp;<a routerLink="/request-list">Return to List</a></span>
-     </section>
-     <table *ngIf='lineitem' class="table table-sm table-striped">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Total</th>
-            <th>Action</th>
-          </tr>
-        </thead>
+  <span class="page-title font-weight-bold font-italic"
+    >[{{ requestTitle }}]</span
+  >
+  <span>&nbsp;<a routerLink="/request-list">Return to List</a></span>
+</section>
+<table *ngIf="request" class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Total</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-        <td>{{ request.id }}</td>
- 
-         </tr>
+      <td>{{ request.id }}</td>
+      <td>{{ request.description }}</td>
+      <td>{{ request.status }}</td>
+      <td>{{ request.total | currency }}</td>
+    </tr>
   </tbody>
+</table>
+<section class="heading">
+  <span class="page-title font-weight-bold font-italic"
+    >[{{ linesTitle }}]</span
+  >
+  <a routerLink="/product-create">
+    <img width="20" height="20" src="assets/add-icon.png" title="Add New" />
+  </a>
+</section>
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Line Total</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lineItem of lineItems">
+      <td>{{ lineItem.id }}</td>
+      <td>{{ lineItem.product.name }}</td>
+      <td>{{ lineItem.quantity }}</td>
+      <td>{{ lineItem.product.price | currency }}</td>
+      <td>{{ lineItem.request.total | currency }}</td>
+    </tr>
+  </tbody>
+</table>

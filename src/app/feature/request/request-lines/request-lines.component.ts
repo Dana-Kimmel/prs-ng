@@ -15,8 +15,8 @@ export class RequestLinesComponent implements OnInit {
   request: Request = null;
   requestId: number = 0;
   linesTitle = 'Lines';
-  lineitem: LineItem = new LineItem();
   lineitems: LineItem[] = [];
+  
 
   constructor(
     private requestSvc: RequestService,
@@ -36,6 +36,17 @@ export class RequestLinesComponent implements OnInit {
       (resp) => {
         this.request = resp as Request;
         console.log('Request', this.request);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+
+    // get lineitems by request ID
+    this.lineItemSvc.getLineItemsByRequestId(this.requestId).subscribe(
+      (resp) => {
+        this.lineitems = resp as LineItem[];
+        console.log('LineItems', this.lineitems);
       },
       (err) => {
         console.log(err);

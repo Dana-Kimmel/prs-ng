@@ -37,7 +37,7 @@ export class LineItemService {
   }
 
   /// List line items for a purchase request 
-  getLineItemByRequestId(id): Observable<LineItem> {
+  getLineItemsByRequestId(id): Observable<LineItem> {
     return this.http.get(URL + '/lines-for-pr/' + id) as Observable<LineItem>;
   }
 }
