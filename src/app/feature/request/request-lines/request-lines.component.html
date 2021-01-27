@@ -49,7 +49,7 @@
       <td>{{ lineItem.product.name }}</td>
       <td>{{ lineItem.quantity }}</td>
       <td>{{ lineItem.product.price | currency }}</td>
-      <td>{{ lineItem.request.total | currency }}</td>
+      <td>{{ lineItem.quantity * lineItem.product.price | currency }}</td>
       <td>
         <a routerLink="/line-item-edit/{{ lineItem.id }}">
           <img
@@ -60,7 +60,7 @@
           />
         </a>
         |
-        <a routerLink="/product-edit/{{ product.id }}">
+        <a routerLink="/request-lines/{{ lineItem.id }}">
           <img
             width="20"
             height="20"
