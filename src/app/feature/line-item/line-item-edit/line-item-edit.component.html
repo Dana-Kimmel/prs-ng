@@ -1,5 +1,5 @@
 <app-menu></app-menu>
-<section class="heading">
+<section class="heading" *ngIf='lineItem'>
   <span class="component-title">[{{ title }}]</span>
   <span>&nbsp;<a routerLink="/request-lines/{{lineItem.request.id}}">Return to Request Lines</a></span>
 </section>
