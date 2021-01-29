@@ -23,7 +23,7 @@ export class ProductCreateComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // get list of vendors because if foreign key constraint
+    // get list of vendors because of foreign key constraint
     this.vendorSvc.getAll().subscribe(
       (resp) => {
         this.vendors = resp as Vendor[];

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { LineItem } from 'src/app/model/line-item.class';
 import { Product } from 'src/app/model/product.class';
 import { Request } from 'src/app/model/request.class';
@@ -8,22 +8,22 @@ import { ProductService } from 'src/app/service/product.service';
 import { RequestService } from 'src/app/service/request.service';
 
 @Component({
-  selector: 'app-line-item-create',
-  templateUrl: './line-item-create.component.html',
-  styleUrls: ['./line-item-create.component.css'],
+  selector: 'app-line-item-edit',
+  templateUrl: './line-item-edit.component.html',
+  styleUrls: ['./line-item-edit.component.css'],
 })
-export class LineItemCreateComponent implements OnInit {
-  title = 'Line Item Create';
-  submitBtnTitle = 'Create';
-  request: Request = new Request();
+export class LineItemEditComponent implements OnInit {
+  title = 'Line Item Edit';
+  submitBtnTitle = 'Change';
   products: Product[] = [];
-  lineItem: LineItem = new LineItem();
+  lineItem: LineItem = null;
+  lineItemId = 0;
   requestId: number = 0;
+  request: Request = new Request();
 
   constructor(
     private productSvc: ProductService,
     private lineItemSvc: LineItemService,
-    private requestSvc: RequestService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
@@ -31,12 +31,12 @@ export class LineItemCreateComponent implements OnInit {
   ngOnInit(): void {
     // get the id from the url
     this.route.params.subscribe((parms) => {
-      this.requestId = parms['id'];
+      this.lineItemId = parms['id'];
     });
-    this.requestSvc.getById(this.requestId).subscribe(
+    this.lineItemSvc.getById(this.lineItemId).subscribe(
       (resp) => {
-        this.request = resp as Request;
-        console.log('Request', this.request);
+        this.lineItem = resp as LineItem;
+        console.log('LineItem', this.lineItem);
       },
       (err) => {
         console.log(err);
@@ -55,18 +55,21 @@ export class LineItemCreateComponent implements OnInit {
   }
 
   save() {
-    this.lineItem.request = this.request;
     // save the line item to the DB
     this.lineItemSvc.create(this.lineItem).subscribe(
       (resp) => {
         this.lineItem = resp as LineItem;
         console.log('Line Item created', this.lineItem);
         // forward to the line item list component
-        this.router.navigateByUrl('/request-lines/' + this.request.id);
+        this.router.navigateByUrl('/request-lines/' + this.lineItem.request.id);
       },
       (err) => {
         console.log(err);
       }
     );
+  }
+
+  compProduct(a: Product, b: Product): boolean {
+    return a && b && a.id === b.id;
   }
 }

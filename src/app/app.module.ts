@@ -25,6 +25,7 @@ import { RequestDetailComponent } from './feature/request/request-detail/request
 import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
 import { RequestLinesComponent } from './feature/request/request-lines/request-lines.component';
 import { LineItemCreateComponent } from './feature/line-item/line-item-create/line-item-create.component';
+import { LineItemEditComponent } from './feature/line-item/line-item-edit/line-item-edit.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { LineItemCreateComponent } from './feature/line-item/line-item-create/li
     RequestEditComponent,
     RequestLinesComponent,
     LineItemCreateComponent,
+    LineItemEditComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
