@@ -12,7 +12,7 @@ import { RequestService } from 'src/app/service/request.service';
 })
 export class RequestLinesComponent implements OnInit {
   requestTitle = 'PurchaseRequest Line Items';
-  request: Request = null;
+  request: Request = new Request();
   requestId: number = 0;
   linesTitle = 'Lines';
   lineItems: LineItem[] = [];
