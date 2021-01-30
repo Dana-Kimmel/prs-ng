@@ -1,35 +1,37 @@
 <app-menu></app-menu>
-<section class="heading" *ngIf='lineItem'>
+<section class="heading" *ngIf="lineItem">
   <span class="component-title">[{{ title }}]</span>
-  <span>&nbsp;<a routerLink="/request-lines/{{lineItem.request.id}}">Return to Request Lines</a></span>
+  <span
+    >&nbsp;<a routerLink="/request-lines/{{ lineItem.request.id }}"
+      >Return to Request Lines</a
+    ></span
+  >
 </section>
 <main class="single">
-  <table *ngIf='lineItem' class="table table-sm">
+  <table *ngIf="lineItem" class="table table-sm">
     <tr>
-        <td>Product:</td>
-        <td>
-          <select [(ngModel)]="lineItem.product" class="rounded" [compareWith]="compProduct">
-            <option *ngFor="let product of products" [ngValue]="product">
-              {{ product.name }} | {{ product.vendor.name }}
-            </option>
-          </select>
-        </td>
-      </tr>
-       <tr>
+      <td>Product:</td>
+      <td>{{ lineItem.product.name }} | {{ lineItem.product.vendor.name }}</td>
+    </tr>
+    <tr>
       <td>Quantity:</td>
       <td>
-        <input [(ngModel)]="lineItem.quantity" class="rounded" type="number" min="0"/>
+        <input
+          [(ngModel)]="lineItem.quantity"
+          class="rounded"
+          type="number"
+          min="0"
+        />
       </td>
     </tr>
   </table>
 </main>
-<span><button (click)="save()" class="btn btn-sm btn-primary">
+<span
+  ><button (click)="save()" class="btn btn-sm btn-primary">
     {{ submitBtnTitle }}
-  </button></span>
+  </button></span
+>
 
 <!--
   <span><button (click)="backClicked()" class="btn btn-sm btn-primary">Back</button></span>
 -->
-
-
-

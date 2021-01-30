@@ -16,7 +16,7 @@ export class RequestLinesComponent implements OnInit {
   requestId: number = 0;
   linesTitle = 'Lines';
   lineItems: LineItem[] = [];
-  
+  submitBtnTitle = 'Submit For Review';
 
   constructor(
     private requestSvc: RequestService,
@@ -28,8 +28,15 @@ export class RequestLinesComponent implements OnInit {
   ngOnInit(): void {
     // get the id from the url
     this.route.params.subscribe((parms) => {
-      this.requestId = parms['id'];
-      console.log('RequestID = ' + this.requestId);
+      if (parms['rid'] && parms['liid']) {
+        this.lineItemSvc.delete(parms['liid']).subscribe((resp) => {
+          this.router.navigateByUrl('/request-lines/' + parms['rid']);
+        });
+      }
+      if (parms['id']) {
+        this.requestId = parms['id'];
+        console.log('RequestID = ' + this.requestId);
+      }
     });
     // get request by id
     this.requestSvc.getById(this.requestId).subscribe(
@@ -45,7 +52,7 @@ export class RequestLinesComponent implements OnInit {
     // get lineitems by request ID
     this.lineItemSvc.getLineItemsByRequestId(this.requestId).subscribe(
       (resp) => {
-        console.log("li resp: " , resp)
+        console.log('li resp: ', resp);
         this.lineItems = resp as LineItem[];
         console.log('LineItems', this.lineItems);
       },
@@ -53,5 +60,10 @@ export class RequestLinesComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+  submitForReview() {
+    this.requestSvc.submitForReview(this.request).subscribe((resp) => {
+      this.router.navigateByUrl('/request-list');
+    });
   }
 }

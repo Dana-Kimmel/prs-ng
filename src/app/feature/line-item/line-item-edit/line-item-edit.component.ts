@@ -15,14 +15,10 @@ import { RequestService } from 'src/app/service/request.service';
 export class LineItemEditComponent implements OnInit {
   title = 'Line Item Edit';
   submitBtnTitle = 'Change';
-  products: Product[] = [];
   lineItem: LineItem = null;
   lineItemId = 0;
-  requestId: number = 0;
-  request: Request = new Request();
 
   constructor(
-    private productSvc: ProductService,
     private lineItemSvc: LineItemService,
     private router: Router,
     private route: ActivatedRoute
@@ -37,16 +33,6 @@ export class LineItemEditComponent implements OnInit {
       (resp) => {
         this.lineItem = resp as LineItem;
         console.log('LineItem', this.lineItem);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-
-    // get list of products because of foreign key constraint
-    this.productSvc.getAll().subscribe(
-      (resp) => {
-        this.products = resp as Product[];
       },
       (err) => {
         console.log(err);
@@ -67,9 +53,5 @@ export class LineItemEditComponent implements OnInit {
         console.log(err);
       }
     );
-  }
-
-  compProduct(a: Product, b: Product): boolean {
-    return a && b && a.id === b.id;
   }
 }
