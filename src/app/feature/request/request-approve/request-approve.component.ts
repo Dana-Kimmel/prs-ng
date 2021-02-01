@@ -16,7 +16,8 @@ export class RequestApproveComponent implements OnInit {
   requestId: number = 0;
   linesTitle = 'Lines';
   lineItems: LineItem[] = [];
-  submitBtnTitle = 'Approve';
+  approveBtnTitle = 'Approve';
+  rejectBtnTitle = 'Reject';
 
   constructor(
     private requestSvc: RequestService,
@@ -62,14 +63,14 @@ export class RequestApproveComponent implements OnInit {
     );
   }
 
-  rejectRequest() {
-    this.requestSvc.submitForReview(this.request).subscribe((resp) => {
+  approveRequest() {
+    this.requestSvc.approveRequest(this.request).subscribe((resp) => {
       this.router.navigateByUrl('/request-review');
     });
   }
 
-  approveRequest() {
-    this.requestSvc.submitForReview(this.request).subscribe((resp) => {
+  rejectRequest() {
+    this.requestSvc.rejectRequest(this.request).subscribe((resp) => {
       this.router.navigateByUrl('/request-review');
     });
   }

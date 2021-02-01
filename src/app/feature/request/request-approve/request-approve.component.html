@@ -49,4 +49,6 @@
         </tr>
   </tbody>
 </table>
-<span><button (click)="approveRequest()" class="btn btn-sm btn-primary">{{submitBtnTitle}}</button></span> 
+<span><button (click)="approveRequest()" class="btn btn-sm btn-primary">{{approveBtnTitle}}</button></span> 
+<input [(ngModel)]="request.reasonForRejection" class="rounded" type="text" placeholder="Reason for Rejection" />
+<span><button (click)="rejectRequest()" class="btn btn-sm btn-danger">{{rejectBtnTitle}}</button></span>
