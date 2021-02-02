@@ -59,7 +59,6 @@ export class LineItemCreateComponent implements OnInit {
     this.lineItemSvc.create(this.lineItem).subscribe(
       (resp) => {
         this.lineItem = resp as LineItem;
-        console.log('Line Item created', this.lineItem);
         // forward to the line item list component
         this.router.navigateByUrl('/request-lines/' + this.request.id);
       },
