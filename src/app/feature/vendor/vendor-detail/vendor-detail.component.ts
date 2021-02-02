@@ -23,13 +23,11 @@ export class VendorDetailComponent implements OnInit {
     // get the id from the url
     this.route.params.subscribe((parms) => {
       this.vendorId = parms['id'];
-      console.log('VendorID = ' + this.vendorId);
     });
     // get vendor by id
     this.vendorSvc.getById(this.vendorId).subscribe(
       (resp) => {
         this.vendor = resp as Vendor;
-        console.log('Vendor', this.vendor);
       },
       (err) => {
         console.log(err);
@@ -41,7 +39,6 @@ export class VendorDetailComponent implements OnInit {
     this.vendorSvc.delete(this.vendor.id).subscribe(
       (resp) => {
         this.vendor = resp as Vendor;
-        console.log('Vendor deleted', this.vendor);
         // forward to the movie list component
         this.router.navigateByUrl('/vendor-list');
       },

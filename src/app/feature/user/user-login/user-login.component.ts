@@ -31,7 +31,6 @@ export class UserLoginComponent implements OnInit {
           this.msg = 'Invalid username / password combo.';
         } else {
           this.user = resp as User;
-          console.log('Successful login!', this.user);
           this.systemSvc.loggedInUser = this.user;
           this.router.navigateByUrl('/user-list');
         }

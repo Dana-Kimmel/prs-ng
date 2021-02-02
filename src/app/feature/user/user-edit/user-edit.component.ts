@@ -24,13 +24,11 @@ export class UserEditComponent implements OnInit {
     // get the id from the url
     this.route.params.subscribe((parms) => {
       this.userId = parms['id'];
-      console.log('UserID = ' + this.userId);
     });
     // get user by id
     this.userSvc.getById(this.userId).subscribe(
       (resp) => {
         this.user = resp as User;
-        console.log('Users', this.user);
       },
       (err) => {
         console.log(err);
@@ -42,8 +40,7 @@ export class UserEditComponent implements OnInit {
     // save the user to the DB
     this.userSvc.update(this.user).subscribe(
       (resp) => {
-        this.user = resp as User ;
-        console.log('User updated', this.user);
+        this.user = resp as User;
         // forward to the user list component
         this.router.navigateByUrl('/user-list');
       },

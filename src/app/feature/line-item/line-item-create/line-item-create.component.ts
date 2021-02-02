@@ -36,7 +36,6 @@ export class LineItemCreateComponent implements OnInit {
     this.requestSvc.getById(this.requestId).subscribe(
       (resp) => {
         this.request = resp as Request;
-        console.log('Request', this.request);
       },
       (err) => {
         console.log(err);

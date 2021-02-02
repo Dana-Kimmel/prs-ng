@@ -26,7 +26,7 @@ export class RequestLinesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // get the id from the url
+    // delete line item
     this.route.params.subscribe((parms) => {
       if (parms['rid'] && parms['liid']) {
         this.lineItemSvc.delete(parms['liid']).subscribe((resp) => {
@@ -35,14 +35,12 @@ export class RequestLinesComponent implements OnInit {
       }
       if (parms['id']) {
         this.requestId = parms['id'];
-        console.log('RequestID = ' + this.requestId);
       }
     });
     // get request by id
     this.requestSvc.getById(this.requestId).subscribe(
       (resp) => {
         this.request = resp as Request;
-        console.log('Request', this.request);
       },
       (err) => {
         console.log(err);
@@ -52,9 +50,7 @@ export class RequestLinesComponent implements OnInit {
     // get lineitems by request ID
     this.lineItemSvc.getLineItemsByRequestId(this.requestId).subscribe(
       (resp) => {
-        console.log('li resp: ', resp);
         this.lineItems = resp as LineItem[];
-        console.log('LineItems', this.lineItems);
       },
       (err) => {
         console.log(err);

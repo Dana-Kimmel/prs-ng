@@ -56,8 +56,7 @@ export class ProductEditComponent implements OnInit {
     this.productSvc.create(this.product).subscribe(
       (resp) => {
         this.product = resp as Product;
-        console.log('Product created', this.product);
-        // forward to the product list component
+                // forward to the product list component
         this.router.navigateByUrl('/product-list');
       },
       (err) => {

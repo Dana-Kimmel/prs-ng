@@ -21,7 +21,6 @@ export class RequestListComponent implements OnInit {
     this.requestSvc.getAll().subscribe(
       (resp) => {
         this.requests = resp as Request[];
-        console.log('Requests', this.requests);
       },
       (err) => {
         console.log(err);

@@ -32,7 +32,6 @@ export class LineItemEditComponent implements OnInit {
     this.lineItemSvc.getById(this.lineItemId).subscribe(
       (resp) => {
         this.lineItem = resp as LineItem;
-        console.log('LineItem', this.lineItem);
       },
       (err) => {
         console.log(err);
@@ -45,7 +44,6 @@ export class LineItemEditComponent implements OnInit {
     this.lineItemSvc.create(this.lineItem).subscribe(
       (resp) => {
         this.lineItem = resp as LineItem;
-        console.log('Line Item created', this.lineItem);
         // forward to the line item list component
         this.router.navigateByUrl('/request-lines/' + this.lineItem.request.id);
       },

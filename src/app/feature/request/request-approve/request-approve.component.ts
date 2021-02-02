@@ -36,14 +36,12 @@ export class RequestApproveComponent implements OnInit {
       }
       if (parms['id']) {
         this.requestId = parms['id'];
-        console.log('RequestID = ' + this.requestId);
       }
     });
     // get request by id
     this.requestSvc.getById(this.requestId).subscribe(
       (resp) => {
         this.request = resp as Request;
-        console.log('Request', this.request);
       },
       (err) => {
         console.log(err);
@@ -55,7 +53,6 @@ export class RequestApproveComponent implements OnInit {
       (resp) => {
         console.log('li resp: ', resp);
         this.lineItems = resp as LineItem[];
-        console.log('LineItems', this.lineItems);
       },
       (err) => {
         console.log(err);

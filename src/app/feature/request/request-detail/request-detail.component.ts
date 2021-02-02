@@ -23,13 +23,11 @@ export class RequestDetailComponent implements OnInit {
     // get the id from the url
     this.route.params.subscribe((parms) => {
       this.requestId = parms['id'];
-      console.log('RequestID = ' + this.requestId);
     });
     // get request by id
     this.requestSvc.getById(this.requestId).subscribe(
       (resp) => {
         this.request = resp as Request;
-        console.log('Request', this.request);
       },
       (err) => {
         console.log(err);
@@ -41,7 +39,6 @@ export class RequestDetailComponent implements OnInit {
     this.requestSvc.delete(this.request.id).subscribe(
       (resp) => {
         this.request = resp as Request;
-        console.log('request deleted', this.request);
         // forward to the request list component
         this.router.navigateByUrl('/request-list');
       },
