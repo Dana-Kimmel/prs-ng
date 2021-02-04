@@ -1,28 +1,28 @@
-<div class="welcome">
-    <h1>{{title}}</h1>
-  </div>
-  <div class="component-content">
-    <form class="text-center">
-      <table *ngIf='user' class="table-sm">
-        <tr class="text-center">
-          <td colspan="2">Login</td>
-        </tr>
-        <tr>
-          <td>Username:</td>
-          <td><input [(ngModel)]='user.userName' name='UserName' type='text'></td>
-          </tr>
-        <tr>
-          <td>Password:</td>
-          <td><input [(ngModel)]='user.password' name='Password' type='password'></td>
-        </tr>
-          <tr>
-          <td class="text-center" colspan="2">
-            <button type='submit' (click)="login()" class="btn btn-primary">Login</button>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2"><label class="text-sm-left">{{msg}}</label></td>
-        </tr>
-      </table>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+    <!-- Tabs Titles -->
+    <div class="fadeIn first">
+      <img
+          width="400"
+          height="200"
+          src="assets/MAX.png"
+          title="User Details"
+        />
+    </div>
+
+      <!-- Login Form -->
+    <form>
+      <input [(ngModel)]='user.userName' type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+      <input [(ngModel)]='user.password' type="password" id="password" class="fadeIn third" name="login" placeholder="password">
+      <input (click)="login()" type="submit" class="fadeIn fourth" value="Log In">
     </form>
+
+       
   </div>
+</div>
