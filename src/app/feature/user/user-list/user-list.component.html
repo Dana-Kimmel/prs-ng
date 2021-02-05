@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 <section class="heading">
   <span class="page-title font-weight-bold font-italic">[{{ title }}]</span>
-  <a *ngIf='isAdmin' routerLink="/user-create">
+  <a *ngIf="isAdmin" routerLink="/user-create">
     <img width="20" height="20" src="assets/add-icon.png" title="Add New" />
   </a>
 </section>
@@ -51,7 +51,7 @@
           />
         </a>
         |
-        <a *ngIf='isAdmin' routerLink="/user-edit/{{ user.id }}">
+        <a *ngIf="isAdmin" routerLink="/user-edit/{{ user.id }}">
           <img
             width="20"
             height="20"
