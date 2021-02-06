@@ -50,8 +50,8 @@
             title="User Details"
           />
         </a>
-        |
-        <a *ngIf="isAdmin" routerLink="/user-edit/{{ user.id }}">
+        <span *ngIf="isAdmin"> | 
+        <a routerLink="/user-edit/{{ user.id }}">
           <img
             width="20"
             height="20"
@@ -59,6 +59,7 @@
             title="User Edit"
           />
         </a>
+      </span>
       </td>
     </tr>
   </tbody>
