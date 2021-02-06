@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/model/product.class';
 import { ProductService } from 'src/app/service/product.service';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-product-list',
@@ -10,8 +11,9 @@ import { ProductService } from 'src/app/service/product.service';
 export class ProductListComponent implements OnInit {
   title = 'Product List';
   products: Product[] = [];
+  isAdmin: boolean = this.systemSvc.isAdmin();
 
-  constructor(private productSvc: ProductService) {}
+  constructor(private productSvc: ProductService, private systemSvc: SystemService) {}
 
   ngOnInit(): void {
     // populate list of products

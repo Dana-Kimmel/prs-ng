@@ -74,7 +74,7 @@
       </tr>
     </table>
   </main>
-  <span>
+  <span *ngIf='isAdmin'>
     <span
       >&nbsp;<button (click)="delete()" class="btn btn-sm btn-danger">
         Delete

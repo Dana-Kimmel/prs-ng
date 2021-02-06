@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/model/product.class';
 import { ProductService } from 'src/app/service/product.service';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -12,11 +13,13 @@ export class ProductDetailComponent implements OnInit {
   title = 'Product Detail';
   product: Product = null;
   productId: number = 0;
+  isAdmin: boolean = this.systemSvc.isAdmin();
 
   constructor(
     private productSvc: ProductService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private systemSvc: SystemService
   ) {}
 
   ngOnInit(): void {

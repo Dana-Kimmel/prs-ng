@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Vendor } from 'src/app/model/vendor.class';
+import { SystemService } from 'src/app/service/system.service';
 import { VendorService } from 'src/app/service/vendor.service';
 
 @Component({
@@ -12,11 +13,13 @@ export class VendorDetailComponent implements OnInit {
   title = 'Vendor Detail';
   vendor: Vendor = null;
   vendorId: number = 0;
+  isAdmin: boolean = this.systemSvc.isAdmin();
 
   constructor(
     private vendorSvc: VendorService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private systemSvc: SystemService
   ) {}
 
   ngOnInit(): void {

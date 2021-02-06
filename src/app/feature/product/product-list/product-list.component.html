@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 <section class="heading">
   <span class="page-title font-weight-bold font-italic">[{{ title }}]</span>
-  <a routerLink="/product-create">
+  <a *ngIf="isAdmin" routerLink="/product-create">
     <img width="20" height="20" src="assets/add-icon.png" title="Add New" />
   </a>
 </section>
@@ -30,7 +30,7 @@
             title="Product Details"
           />
         </a>
-        |
+        <span *ngIf="isAdmin"> | 
         <a routerLink="/product-edit/{{ product.id }}">
           <img
             width="20"
@@ -39,6 +39,7 @@
             title="Product Edit"
           />
         </a>
+      </span>
       </td>
     </tr>
   </tbody>
