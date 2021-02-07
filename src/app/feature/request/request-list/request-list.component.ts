@@ -22,7 +22,13 @@ export class RequestListComponent implements OnInit {
       (resp) => {
         this.requests = resp as Request[];
         // if user is not reviewer and not admin loop through request, filter down to only user request
+if (!this.systemSvc.loggedInUser.reviewer && !this.systemSvc.loggedInUser.admin) {
+  for(let requests of this.Request[]) {
+    if (this.requests.user.id ) {
 
+    }
+  }
+}
       },
       (err) => {
         console.log(err);
