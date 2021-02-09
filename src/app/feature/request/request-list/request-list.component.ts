@@ -24,10 +24,10 @@ export class RequestListComponent implements OnInit {
         // if user is not reviewer and not admin loop through request, filter down to only user request
 if (!this.systemSvc.loggedInUser.reviewer && !this.systemSvc.loggedInUser.admin) {
   for(let request of this.requests) {
-    if (request.user == this.systemSvc.loggedInUser) {
+    if (request.user == this.systemSvc.loggedInUser) {}
       
 
-    }
+    
   }
 }
       },
