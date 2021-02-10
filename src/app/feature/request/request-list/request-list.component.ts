@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/model/user.class';
 import { RequestService } from 'src/app/service/request.service';
 import { SystemService } from 'src/app/service/system.service';
 import { Request } from '../../../model/request.class';
@@ -11,25 +12,34 @@ import { Request } from '../../../model/request.class';
 export class RequestListComponent implements OnInit {
   title = 'Request List';
   requests: Request[] = [];
-
-  constructor(private requestSvc: RequestService, private systemSvc: SystemService) {}
-
-  ngOnInit(): void {
-    this.systemSvc.checkLogin();
+  newRequests: Request[] = [];
+  
+  constructor(
+    private requestSvc: RequestService,
+    private systemSvc: SystemService
+    ) {}
+    user: User = this.systemSvc.loggedInUser;
+    
+    ngOnInit(): void {
+      this.systemSvc.checkLogin();
 
     // populate list of requests
     this.requestSvc.getAll().subscribe(
       (resp) => {
         this.requests = resp as Request[];
         // if user is not reviewer and not admin loop through request, filter down to only user request
-if (!this.systemSvc.loggedInUser.reviewer && !this.systemSvc.loggedInUser.admin) {
-  for(let request of this.requests) {
-    if (request.user == this.systemSvc.loggedInUser) {}
-      
-
-    
-  }
-}
+        if (
+          !this.systemSvc.loggedInUser.reviewer &&
+          !this.systemSvc.loggedInUser.admin
+        ) {
+          for (let request of this.requests) {
+            if (
+              request.user.userName === this.systemSvc.loggedInUser.userName
+            ) {
+              this.newRequests.push(request);
+            }
+          }
+        }
       },
       (err) => {
         console.log(err);
