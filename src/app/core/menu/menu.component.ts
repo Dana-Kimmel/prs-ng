@@ -10,7 +10,7 @@ import { SystemService } from 'src/app/service/system.service';
 })
 export class MenuComponent implements OnInit {
   user: User = new User();
-  reviewIndex: number = 5;
+  reviewIndex: number = 4;
 
   constructor(private sysSvc: SystemService) { }
   
@@ -26,12 +26,11 @@ export class MenuComponent implements OnInit {
 
   // Array of Menu Options
   menuItems : MenuItem[] = [
-    new MenuItem("Home", "/home", "Home Page"),
     new MenuItem("User", "/user-list", "User List"),
     new MenuItem("Vendor", "/vendor-list", "Vendor List"),
     new MenuItem("Product", "/product-list", "Product List"),
     new MenuItem("Request", "/request-list", "Request List"),
-    new MenuItem("Review", "/request-review/{{this.user.id}}", "Review List"),
+    new MenuItem("Review", "/request-review", "Review List"),
     new MenuItem("Login", "/user-login", "User Login")
   ];
 }
