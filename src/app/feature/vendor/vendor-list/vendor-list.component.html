@@ -8,19 +8,19 @@
 <table class="table table-sm table-striped">
   <thead>
     <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th>Phone Number</th>
-      <th>Email</th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('code')">Code</button></th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('name')">Name</button></th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('address')">Address</button></th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('city')">City</button></th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('state')">State</button></th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('zip')">Zip</button></th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('phoneNumber')">Phone Number</button></th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('email')">Email</button></th>
       <th>Action</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let vendor of vendors">
+    <tr *ngFor="let vendor of vendors | sort: sortCriteria:sortOrder ">
       <td>{{ vendor.code }}</td>
       <td>{{ vendor.name }}</td>
       <td>{{ vendor.address }}</td>

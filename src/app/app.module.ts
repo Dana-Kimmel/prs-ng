@@ -58,8 +58,7 @@ import { SortPipe } from './pipe/sort.pipe';
     LineItemEditComponent,
     RequestReviewComponent,
     RequestApproveComponent,
-    Sort.Pipe.TsPipe,
-    SortPipe,
+    SortPipe
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

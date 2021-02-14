@@ -12,6 +12,9 @@ export class VendorListComponent implements OnInit {
   title = 'Vendor List';
   vendors: Vendor[] = [];
   isAdmin: boolean = this.systemSvc.isAdmin();
+  sortCriteria: string = 'id';
+  sortOrder: string = 'asc';
+  colClasses = 'btn btn-link font-weight-bold';
 
   constructor(
     private vendorSvc: VendorService,
@@ -28,5 +31,12 @@ export class VendorListComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+  sortBy(column: string): void {
+    console.log('movie list sortBy called');
+    if (column == this.sortCriteria) {
+      this.sortOrder = this.sortOrder == 'desc' ? 'asc' : 'desc';
+    }
+    this.sortCriteria = column;
   }
 }
