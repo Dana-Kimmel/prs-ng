@@ -12,8 +12,14 @@ export class ProductListComponent implements OnInit {
   title = 'Product List';
   products: Product[] = [];
   isAdmin: boolean = this.systemSvc.isAdmin();
+  sortCriteria: string = 'id';
+  sortOrder: string = 'asc';
+  colClasses = 'btn btn-link font-weight-bold';
 
-  constructor(private productSvc: ProductService, private systemSvc: SystemService) {}
+  constructor(
+    private productSvc: ProductService,
+    private systemSvc: SystemService
+  ) {}
 
   ngOnInit(): void {
     // populate list of products
@@ -25,5 +31,13 @@ export class ProductListComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  sortBy(column: string): void {
+    console.log('movie list sortBy called');
+    if (column == this.sortCriteria) {
+      this.sortOrder = this.sortOrder == 'desc' ? 'asc' : 'desc';
+    }
+    this.sortCriteria = column;
   }
 }
