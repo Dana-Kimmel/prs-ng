@@ -33,7 +33,7 @@ export class VendorListComponent implements OnInit {
     );
   }
   sortBy(column: string): void {
-    console.log('movie list sortBy called');
+    console.log('vendor list sortBy called');
     if (column == this.sortCriteria) {
       this.sortOrder = this.sortOrder == 'desc' ? 'asc' : 'desc';
     }

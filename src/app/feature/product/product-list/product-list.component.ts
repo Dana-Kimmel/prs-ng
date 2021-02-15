@@ -34,7 +34,7 @@ export class ProductListComponent implements OnInit {
   }
 
   sortBy(column: string): void {
-    console.log('movie list sortBy called');
+    console.log('product list sortBy called');
     if (column == this.sortCriteria) {
       this.sortOrder = this.sortOrder == 'desc' ? 'asc' : 'desc';
     }
