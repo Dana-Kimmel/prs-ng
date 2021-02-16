@@ -8,27 +8,23 @@
 <table class="table table-sm table-striped">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>User Name</th>
-      <th>Description</th>
-      <th>Date Needed</th>
-      <th>Delivery Mode</th>
-      <th>Status</th>
-      <th>Total</th>
-      <th>Submitted Date</th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('id')">ID</button></th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('userName')">User Name</button></th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('description')">Description</button></th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('dateNeeded')">Date Needed</button></th>      
+      <th><button [ngClass]="colClasses" (click)="sortBy('status')">Status</button></th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('total')">Total</button></th>      
       <th>Action</th>
     </tr>
   </thead>
   <tbody *ngIf="!(user.reviewer)" >     
-      <tr *ngFor="let request of newRequests">
+      <tr *ngFor="let request of newRequests | sort: sortCriteria:sortOrder ">
         <td>{{ request.id }}</td>
         <td>{{ request.user.userName }}</td>
         <td>{{ request.description }}</td>
-        <td>{{ request.dateNeeded }}</td>
-        <td>{{ request.deliveryMode }}</td>
+        <td>{{ request.dateNeeded }}</td>        
         <td>{{ request.status }}</td>
-        <td>{{ request.total | currency }}</td>
-        <td>{{ request.submittedDate }}</td>
+        <td>{{ request.total | currency }}</td>        
         <td>
           <a routerLink="/request-detail/{{ request.id }}">
             <img
@@ -60,16 +56,14 @@
       </tr>   
   </tbody>
   <tbody *ngIf="(user.reviewer)" >     
-    <tr *ngFor="let request of requests">
+    <tr *ngFor="let request of requests | sort: sortCriteria:sortOrder ">
       <td>{{ request.id }}</td>
       <td>{{ request.user.userName }}</td>
       <td>{{ request.description }}</td>
       <td>{{ request.dateNeeded }}</td>
-      <td>{{ request.deliveryMode }}</td>
       <td>{{ request.status }}</td>
       <td>{{ request.total | currency }}</td>
-      <td>{{ request.submittedDate }}</td>
-      <td>
+        <td>
         <a routerLink="/request-detail/{{ request.id }}">
           <img
             width="20"
