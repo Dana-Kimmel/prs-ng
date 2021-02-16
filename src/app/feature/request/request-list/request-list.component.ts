@@ -13,15 +13,18 @@ export class RequestListComponent implements OnInit {
   title = 'Request List';
   requests: Request[] = [];
   newRequests: Request[] = [];
-  
+  sortCriteria: string = 'id';
+  sortOrder: string = 'asc';
+  colClasses = 'btn btn-link font-weight-bold';
+
   constructor(
     private requestSvc: RequestService,
     private systemSvc: SystemService
-    ) {}
-    user: User = this.systemSvc.loggedInUser;
-    
-    ngOnInit(): void {
-      this.systemSvc.checkLogin();
+  ) {}
+  user: User = this.systemSvc.loggedInUser;
+
+  ngOnInit(): void {
+    this.systemSvc.checkLogin();
 
     // populate list of requests
     this.requestSvc.getAll().subscribe(
@@ -45,5 +48,12 @@ export class RequestListComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+  sortBy(column: string): void {
+    console.log('vendor list sortBy called');
+    if (column == this.sortCriteria) {
+      this.sortOrder = this.sortOrder == 'desc' ? 'asc' : 'desc';
+    }
+    this.sortCriteria = column;
   }
 }
