@@ -30,6 +30,9 @@ export class RequestListComponent implements OnInit {
     this.requestSvc.getAll().subscribe(
       (resp) => {
         this.requests = resp as Request[];
+        for (let r of this.requests) {
+          r.userName = r.user.userName;
+        }
         // if user is not reviewer and not admin loop through request, filter down to only user request
         if (
           !this.systemSvc.loggedInUser.reviewer &&
