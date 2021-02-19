@@ -8,6 +8,8 @@ export class Product {
   price: number;
   unit: string;
   photoPath: string;
+  //derived field
+  vendorName: string;
 
   constructor(
     id: number = 0,
