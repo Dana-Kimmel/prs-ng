@@ -8,7 +8,6 @@
 <table class="table table-sm table-striped">
   <thead>
     <tr>
-      <th><button [ngClass]="colClasses" (click)="sortBy('id')">ID</button></th>
       <th><button [ngClass]="colClasses" (click)="sortBy('userName')">User Name</button></th>
       <th><button [ngClass]="colClasses" (click)="sortBy('description')">Description</button></th>
       <th><button [ngClass]="colClasses" (click)="sortBy('dateNeeded')">Date Needed</button></th>      
@@ -19,7 +18,6 @@
   </thead>
   <tbody *ngIf="!(user.reviewer)" >     
       <tr *ngFor="let request of newRequests | sort: sortCriteria:sortOrder ">
-        <td>{{ request.id }}</td>
         <td>{{ request.user.userName }}</td>
         <td>{{ request.description }}</td>
         <td>{{ request.dateNeeded }}</td>        
@@ -57,7 +55,6 @@
   </tbody>
   <tbody *ngIf="(user.reviewer)" >     
     <tr *ngFor="let request of requests | sort: sortCriteria:sortOrder ">
-      <td>{{ request.id }}</td>
       <td>{{ request.user.userName }}</td>
       <td>{{ request.description }}</td>
       <td>{{ request.dateNeeded }}</td>
