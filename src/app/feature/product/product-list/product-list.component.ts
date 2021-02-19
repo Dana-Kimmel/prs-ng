@@ -26,6 +26,9 @@ export class ProductListComponent implements OnInit {
     this.productSvc.getAll().subscribe(
       (resp) => {
         this.products = resp as Product[];
+        for(let p of this.products) {
+          p.vendorName = p.vendor.name;
+        }
       },
       (err) => {
         console.log(err);
