@@ -11,6 +11,8 @@ export class Request {
   total: number;
   submittedDate: Date;
   reasonForRejection: string;
+  //derived field
+  userName:string;
 
   constructor(
     id: number = 0,
