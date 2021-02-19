@@ -11,7 +11,7 @@ import { SystemService } from 'src/app/service/system.service';
 export class RequestReviewComponent implements OnInit {
   title = 'PurchaseRequest Review';
   requests: Request[] = [];
-  requestId: number = 0;
+  
 
   constructor(
     private requestSvc: RequestService,
@@ -19,6 +19,7 @@ export class RequestReviewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.systemSvc.checkLogin();
     // populate list of requests by users that are not logged in
     this.requestSvc.getRequestsInReview(this.systemSvc.loggedInUser.id).subscribe(
       (resp) => {

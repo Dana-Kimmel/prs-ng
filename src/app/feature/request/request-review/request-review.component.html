@@ -5,7 +5,6 @@
 <table class="table table-sm table-striped">
   <thead>
     <tr>
-      <th>ID</th>
       <th>User Name</th>
       <th>Description</th>
       <th>Status</th>
@@ -15,7 +14,6 @@
   </thead>
   <tbody>
     <tr *ngFor="let request of requests">
-      <td>{{ request.id }}</td>
       <td>{{ request.user.userName }}</td>
       <td>{{ request.description }}</td>
       <td>{{ request.status }}</td>
