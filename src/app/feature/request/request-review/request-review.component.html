@@ -7,8 +7,8 @@
     <tr>
       <th>User Name</th>
       <th><button [ngClass]="colClasses" (click)="sortBy('description')">Description</button></th>
-      <th>Status</th>
-      <th>Total</th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('status')">Status</button></th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('total')">Total</button></th>
       <th>Action</th>
     </tr>
   </thead>
