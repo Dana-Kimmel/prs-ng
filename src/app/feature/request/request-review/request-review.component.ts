@@ -26,6 +26,9 @@ export class RequestReviewComponent implements OnInit {
     this.requestSvc.getRequestsInReview(this.systemSvc.loggedInUser.id).subscribe(
       (resp) => {
         this.requests = resp as Request[];
+        for (let r of this.requests){
+          r.userName = r.user.userName;
+        }
           },
       (err) => {
         console.log(err);

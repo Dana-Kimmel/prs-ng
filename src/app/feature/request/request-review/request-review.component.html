@@ -5,7 +5,7 @@
 <table class="table table-sm table-striped">
   <thead>
     <tr>
-      <th>User Name</th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('userName')">User Name</button></th>
       <th><button [ngClass]="colClasses" (click)="sortBy('description')">Description</button></th>
       <th><button [ngClass]="colClasses" (click)="sortBy('status')">Status</button></th>
       <th><button [ngClass]="colClasses" (click)="sortBy('total')">Total</button></th>
