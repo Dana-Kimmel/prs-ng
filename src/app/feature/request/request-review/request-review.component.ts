@@ -11,7 +11,9 @@ import { SystemService } from 'src/app/service/system.service';
 export class RequestReviewComponent implements OnInit {
   title = 'PurchaseRequest Review';
   requests: Request[] = [];
-  
+  sortCriteria: string = 'id';
+  sortOrder: string = 'asc';
+  colClasses = 'btn btn-link font-weight-bold';
 
   constructor(
     private requestSvc: RequestService,
@@ -29,5 +31,13 @@ export class RequestReviewComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  sortBy(column: string): void {
+    console.log('movie list sortBy called');
+    if (column == this.sortCriteria) {
+      this.sortOrder = this.sortOrder == 'desc' ? 'asc' : 'desc';
+    }
+    this.sortCriteria = column;
   }
 }
