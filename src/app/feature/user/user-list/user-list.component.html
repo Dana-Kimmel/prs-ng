@@ -8,18 +8,18 @@
 <table class="table table-sm table-striped">
   <thead>
     <tr>
-      <th>Username</th>
-      <th>Password</th>
-      <th>Name</th>
-      <th>Phone Number</th>
-      <th>Email</th>
-      <th>Reviewer</th>
-      <th>Admin</th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('userName')">User Name</button></th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('password')">Password</button></th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('lastName')">Name</button></th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('phoneNumber')">Phone Number</button></th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('email')">Email</button></th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('reviewer')">Reviewer</button></th>
+      <th><button [ngClass]="colClasses" (click)="sortBy('admin')">Admin</button></th>
       <th>Action</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users">
+    <tr *ngFor="let user of users | sort: sortCriteria:sortOrder">
       <td>{{ user.userName }}</td>
       <td>{{ user.password }}</td>
       <td>{{ user.firstName }} {{ user.lastName }}</td>
