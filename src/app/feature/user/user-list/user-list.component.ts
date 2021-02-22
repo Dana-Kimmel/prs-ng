@@ -12,6 +12,9 @@ export class UserListComponent implements OnInit {
   title = 'User List';
   users: User[] = [];
   isAdmin: boolean = this.systemSvc.isAdmin();
+  sortCriteria: string = 'id';
+  sortOrder: string = 'asc';
+  colClasses = 'btn btn-link font-weight-bold';
 
   constructor(private userSvc: UserService, private systemSvc: SystemService) {}
 
@@ -25,5 +28,13 @@ export class UserListComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  sortBy(column: string): void {
+    console.log('vendor list sortBy called');
+    if (column == this.sortCriteria) {
+      this.sortOrder = this.sortOrder == 'desc' ? 'asc' : 'desc';
+    }
+    this.sortCriteria = column;
   }
 }
