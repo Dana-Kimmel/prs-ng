@@ -7,6 +7,12 @@ ul {
   padding: 0;
   margin: 0;
 }
+.prsLogo {
+  margin: 10px;
+  font-weight: bolder;
+  font-size: 20px;
+  color:rgb(37, 36, 36);
+}
 li {
   display: inline-block;
   text-align: center;
